@@ -1,0 +1,9 @@
+<ul >
+	<span class="user"><b><%= sub_comment.user.name %></b></span><br>
+	<span class="content"><%= sub_comment.content %></span><br>
+	<span class="timestamp">
+		Posted <%= time_ago_in_words(sub_comment.created_at) %> ago
+		<%= link_to "delete", comment_sub_comment_path(sub_comment), method: :delete, data: { confirm: "You sure?" } %>
+		<%= link_to "edit",  edit_comment_sub_comment_path(sub_comment) %>
+	</span>
+</ul>	

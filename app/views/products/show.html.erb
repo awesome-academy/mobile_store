@@ -1,0 +1,19 @@
+	<li id="@product-<%= @product.id %>">
+		<span class="user"><%= link_to @product.name %></span>
+		<span class="content">
+			<%= @product.price %>
+		</span>
+	</li>
+	<section class="comment_form_form">
+		<%= render 'shared/comment_form' %>
+	</section>
+
+	<div class="col-md-8">
+		<% if @product.comments.any? %>
+			<h3>comments (<%= @product.comments.count %>)</h3>
+			<ol class="comments">
+				<%= render @comments %>
+			</ol>
+		<%= will_paginate @comments %>
+		<% end %>
+	</div>

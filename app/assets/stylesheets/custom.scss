@@ -80,7 +80,7 @@ section {
 body {
  margin:0;
  font-family:Jost;
- font-size:1rem;
+ font-size:20px !important;
  font-weight:400;
  line-height:1.5;
  color:#111;
@@ -15162,4 +15162,17 @@ a.text-decoration-underline:hover {
  background-color:#1f1f1f
 }
 
+.gravatar {
+float: left;
+margin-right: 5px;
+width: 25px;
+height: 25px;
 
+}
+.gravatar_edit {
+margin-top: 15px;
+}
+
+.timestamp{
+  font-size: 15px;
+}
