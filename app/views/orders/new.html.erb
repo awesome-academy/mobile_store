@@ -1,0 +1,67 @@
+<% provide(:title, 'Đặt hàng') %>
+
+<div class="modal-content">
+          <!-- Header-->
+    <div class="modal-header line-height-fixed font-size-lg">
+        <% @count = 0%>
+		<% session[:cart].each do |order_detail| %>
+			<% quantity = order_detail.last %>
+			<% @count += quantity %>
+		<% end %>	
+       	<strong class="mx-auto">Đơn hàng(<%= @count %> sản phẩm)</strong>
+    </div>
+        	<% @sum = 0%>
+			<% session[:cart].each do |order_detail| %>
+				<% product = Product.find(order_detail.first.to_i)%>
+				<% quantity = order_detail.last %>
+				<% unit_price = product.price*quantity %>				
+            	<% @sum += unit_price %>
+			<% end %>
+		<div class = "infor">
+			Tạm tính: <%= @sum%> VND</br>
+			Phí vận chuyển: 30 VND</br>
+			Tổng công: <%= @sum + 30%> VND</br>
+			Hình thức thanh toán: Thanh toán khi nhận hàng
+		</div>
+
+		<b class = "nhap_thong_tin">Vui lòng nhập thông tin giao hàng</b>
+        <div class="form">
+        	<%= form_for @order do |f| %>
+				<%= f.hidden_field :user_id, value: 1 %>
+
+				<%= f.hidden_field :total_price, value: @sum %>
+
+				<%= f.label :name, "Tên khách hàng:" %>
+				<%= f.text_field :name, class: 'form-control' %>
+				
+				<%= f.label :address, "Địa chỉ nhận hàng:" %>	
+				<%= f.text_field :address, class: 'form-control' %>
+				
+				<%= f.label :phone, "Số điện thoại:" %>
+				<%= f.text_field :phone, class: 'form-control' %>
+
+				<%= f.submit "GIAO ĐẾN ĐỊA CHỈ NÀY" %>
+			<% end %>
+        </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+

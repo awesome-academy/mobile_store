@@ -1,0 +1,76 @@
+<% provide(:title, 'gio hang cua ban') %>
+
+<div class="modal-content">
+    <div class="modal-header line-height-fixed font-size-lg">
+    	<%if session[:cart].nil?%>
+			<strong class="mx-auto">Giỏ hàng của bạn (0)</strong>
+    	<%else%>
+	        <% @count = 0%>
+			<% session[:cart].each do |order_detail| %>
+				<% quantity = order_detail.last %>
+				<% @count += quantity %>
+			<% end %>	
+       		<strong class="mx-auto">Giỏ hàng của bạn (<%= @count %>)</strong>
+       	<% end %>
+    </div>
+    <%if session[:cart].nil?%>
+	    <ul class="list-group list-group-lg list-group-flush">
+	    	<p class="empty">Chưa có sam phẩm nào trong giỏ hàng</p>
+	    	<%= link_to 'TIẾP TỤC MUA SẮM', root_path, class:"order" %>
+	    </ul>
+    <%else%>
+	    <% @sum = 0%>
+	    <% @count = 0%>
+		<% session[:cart].each do |order_detail| %>
+			<% product = Product.find(order_detail.first.to_i)%>
+			<% quantity = order_detail.last %>
+			<% unit_price = product.price*quantity %>
+
+	          <!-- List group -->
+	        <ul class="list-group list-group-lg list-group-flush">
+	            <li class="list-group-item">
+	              <div class="row align-items-center">
+	                <div class="col-4">
+
+	                  <!-- Image -->
+	                  <a href="./product.html">
+	                    <img class="img-fluid" src="./assets/img/products/product-6.jpg" alt="...">
+	                  </a>
+
+	                </div>
+	                <div class="col-8">
+
+	                  <!-- Title -->
+	                  <p class="font-size-sm font-weight-bold mb-6">
+	                    <a class="text-body" href="#">
+	                    	<%= "#{product.name}" %></a>
+	                    	<p class="soluong">Số lương:
+	                    		<%= link_to '-', subtract_path(order_detail.first.to_i), class:"btn-button" %>
+	                    		<%= quantity %> 
+								<%= link_to '+', add_path(order_detail.first.to_i), class:"btn-button" %></br>
+	                    <span class="text-muted"><%= "#{product.price} VND" %></span>
+	                  </p>
+
+	                  <!--Footer -->
+	                  <div class="d-flex align-items-center"
+
+	                    <!-- Remove -->
+	                    <%= link_to 'Remove', cart_path(order_detail.first.to_i),
+	                    	method: :delete,
+									 data: { confirm: "You sure?" },
+	                    	class:"font-size-xs text-gray-400 ml-auto" 
+	                    %>
+	                  </div>
+
+	                </div>
+	              </div>
+	            </li>
+	   				<% @sum += unit_price %>
+				<% end %>        
+	        </ul>
+	    <div class = "sum">Tổng tiền: <%= @sum %> VND</div>
+	    <%= link_to 'TIẾP TỤC MUA SẮM', root_path, class:"order" %>
+		<%= link_to 'TIẾN HÀNH ĐẶT HÀNG', new_order_path, class:"order" %>
+	<%end%>
+</div>
+

@@ -3,6 +3,7 @@
 		<span class="content">
 			<%= @product.price %>
 		</span>
+		<%= link_to 'Add to Cart', cart_path, class:"btn-button" %>
 	</li>
 	<section class="comment_form_form">
 		<%= render 'shared/comment_form' %>
