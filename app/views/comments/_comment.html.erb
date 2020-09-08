@@ -1,0 +1,14 @@
+<li >
+	<span class="user"><b><%= comment.user.name %></b></span> </div>
+	
+	<span class="content"><%= comment.content %></span><br>
+
+	<span class="timestamp">
+		Posted <%= time_ago_in_words(comment.created_at) %> ago.
+	<%= link_to "Reply", new_comment_sub_comment_path(comment) %>
+	<% if current_user && current_user.current_user?(comment.user) %>
+		<%= link_to "delete", comment_path(comment), method: :delete, data: { confirm: "You sure?" } %>
+		<%= link_to "edit", edit_comment_path(comment) %>
+	<% end %></span><br>
+	<%= render comment.sub_comments %>
+</li>	
