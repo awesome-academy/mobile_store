@@ -1,0 +1,7 @@
+$("#product-<%= @product_will_delete.id %>").remove();
+$(".row align-items-center").remove();
+$(".img-fluid-<%=  @product_will_delete.id %>").remove();
+$("#sum-ajax").html(' Tong tien: <%= j @total %> VND');
+$(".mx-auto").html(' Giỏ hàng của bạn (<%= @total_quantity %>)');
+
+

@@ -1,0 +1,5 @@
+$('#sub_comment_content').val('');
+$("#comment-<%= @comment.id %>").append("<%= j render @sub_comment %>");
+$("#sub_comment_content").remove()
+$("#btn-post").remove()
+

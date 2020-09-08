@@ -5,6 +5,10 @@ class SubCommentsController < ApplicationController
 	def new
 		@sub_comment= SubComment.new
 		@comment = Comment.find_by id: params[:comment_id]
+    respond_to do |format|
+        format.html { redirect_to @comment}
+        format.js
+        end
 	end
 
 	def create
@@ -14,28 +18,39 @@ class SubCommentsController < ApplicationController
 		@sub_comment.user = current_user
 		if @sub_comment.save!
 			flash[:success] = "SubComment created!"
-			redirect_to @comment.product
-    	end
+      respond_to do |format|
+        format.html { redirect_to @comment}
+        format.js
+        end
+      
     end	
+  end
+
 
     def edit
-    	@sub_comment = SubComment.find_by id: params[:comment_id]
-    	
+
+      respond_to do |format|
+        format.html { redirect_to @sub_comment.comment}
+        format.js
+        end
     end
 
     def update
-
-    	@sub_comment = SubComment.find_by id: params[:comment_id]
-    	
     	if @sub_comment.update(sub_comment_params)
-			flash[:success] = " update successful"
-   		 end
-   		 redirect_to @sub_comment.comment.product
+  			flash[:success] = " update successful"
+        respond_to do |format|
+          format.html { redirect_to @sub_comment.comment.product}
+          format.js
+     		 end
+      end
+   
    	end
    	def destroy
-   		@sub_comment = SubComment.find_by id: params[:comment_id]
    		@sub_comment.destroy
-   		redirect_to @sub_comment.comment.product
+      respond_to do |format|
+        format.html { redirect_to @sub_comment.comment.product}
+        format.js
+   	    end
    	end
 
     private
@@ -50,7 +65,8 @@ class SubCommentsController < ApplicationController
     end
 
     def find_subcoment
-      @sub_comment = SubComment.find_by id: params[:comment_id]
+      
+      @sub_comment = SubComment.find_by id: params[:id]
       if @sub_comment.nil?
            flash[:error] = 'Do not find comment'
            redirect_to root_url

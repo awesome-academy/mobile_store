@@ -1,7 +1,7 @@
-<%= form_for([:comment, @sub_comment]) do |f| %>
+<%= form_for([:comment, @sub_comment],remote: true) do |f| %>
 	<div class="field">
 		<%= f.text_area :content, placeholder: "Compose new comment..." %>
 	</div>
 
-	<%= f.submit "Post", class: " btn-primary" %>
+	<%= f.submit "Post", class: " btn-primary", id: "btn-post" %>
 <% end %>
