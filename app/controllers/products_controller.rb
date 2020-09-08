@@ -5,5 +5,11 @@ class ProductsController < ApplicationController
       @comments = @product.comments.sort_by_created.paginate(page: params[:page])
       
 	end
-
+    def index
+        @products = Product.all
+    end
+    private
+    def product_params
+        params.require(:product).permit(:name, :branch, :image)
+    end    
 end

@@ -1,0 +1,14 @@
+<div class="col-6 col-sm-4 col-md px-1">
+    <!-- Card -->
+      <div class="card mb-2">
+    <!-- Image -->
+      < %= class="card-img" image_tag product.image if product.image.attached? %>
+    <!-- Overlay -->
+            <p class="my-0 font-size-xxs text-center text-white">
+              <i class="fe fe-heart mr-2"></i> 248 <i class="fe fe-message-square mr-2 ml-3"></i> 7
+            </p>
+            </div>
+<span><%= product.name %></span>
+<span><%= product.branch %></span>
+<%= link_to "view product", product_path(product)%>
+</div>
