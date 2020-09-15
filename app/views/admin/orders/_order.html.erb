@@ -1,0 +1,39 @@
+<li id="order">
+	<div class="card card-lg mb-5 border">
+	    <div class="card-body pb-0">
+	      <div class="card card-sms">
+	        <div class="card-body bg-light">
+	          <div class="row">     									       		
+	       		<div class="col-6 col-lg-4">
+				    <h6 class="heading-xxxs text-muted">Order date:</h6>
+				    <p class="mb-lg-0 font-size-sm font-weight-bold">
+				    	<%= order.created_at %>
+					</p>
+				</div>
+
+				<div class="col-6 col-lg-4">
+					<h6 class="heading-xxxs text-muted">Order Amount:</h6>
+						<p class="mb-lg-0 font-size-sm font-weight-bold">
+				    	<%= order.total_price %>
+			    	</p>
+				</div> 
+
+
+	            <div class="col-6 col-lg-4">
+	              <h6 class="heading-xxxs text-muted">Status:</h6>
+	              <p class="mb-lg-0 font-size-sm font-weight-bold">
+	                <%= order.order_status %>
+	               </p>
+	            </div>
+	             
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	    <div class="card-footer">	     
+	        <div class = "order_details_btn" >
+	            <%= link_to "Kiểm tra đơn hàng", admin_order_path(order.id) %>   
+	        </div>
+	    </div>
+  </div>	
+</li>
