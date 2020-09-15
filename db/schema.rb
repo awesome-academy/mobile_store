@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2020_09_21_020234) do
     t.string "remember_digest"
     t.boolean "admin", default: false
     t.integer "classify"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

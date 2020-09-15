@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 	before_action :admin_user,only: :destroy
 	
   	def show
-  		@orders = @user.orders.paginate(page: params[:page])
+  		@orders = @user.orders.order_by_time.paginate(page: params[:page])
   		@feed_items = current_user.feed.paginate(page: params[:page], per_page: 10)
 	end
 
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 		end
 
 	end
-	
+
 	def edit
 	end	
 
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
 	def admin_user
 		redirect_to(root_url) unless current_user.admin?
 	end
-	
+
 	def find_user
 		@user = User.find_by id:params[:id]	
 		if  @user.nil?

@@ -15254,6 +15254,7 @@ input.sluong {
   margin-bottom: 50px;
 }
 
+
 .btn-primary.cmt{
   width: 100px;
   padding-bottom: 5px;
@@ -15274,6 +15275,7 @@ input.sluong {
   margin-top: 37px;
  
 }
+
 ul {
   list-style-type: none;
 }
@@ -15282,19 +15284,37 @@ a {
    text-decoration: none !important;
 }
 
+
+.order_details_btn a{
+  color: gray;
+  border: 1px solid gray;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.order_details_btn a:hover{
+  color: gray;
+  border: 1px solid gray;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 12px;
+  background-color: #BDBDBD;
+}
+
 .list-group-flush-x a{
   color: black;
   border-top: 1px solid black;
   padding: 6px;
   font-size: 15px;
-  background-color: white;
+  background-color: #F2F2F2;
 }
 
 .orders{
   border-top: 1px solid black;
   padding: 6px;
   font-size: 15px;
-  background-color: #F2F2F2;
+  background-color: #BDBDBD;
 }
 
 .orders a{
@@ -15302,7 +15322,7 @@ a {
 }
 
 .list-group-flush-x a:hover{
-  background-color: #F2F2F2;
+  background-color:  #BDBDBD;
   color: black;
 }
 
