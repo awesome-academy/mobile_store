@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_09_025312) do
-
-  create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2020_09_18_020517) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "product_id"
@@ -36,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_025312) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.integer "total_price"
-    t.integer "order_status"
+    t.integer "order_status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
@@ -50,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_025312) do
     t.string "branch"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "classify"
   end
 
   create_table "sub_comments", force: :cascade do |t|
@@ -63,12 +59,12 @@ ActiveRecord::Schema.define(version: 2020_09_09_025312) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "phone"
-    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.string "remember_digest"
+    t.boolean "admin", default: false
+    t.integer "classify"
   end
 
 end

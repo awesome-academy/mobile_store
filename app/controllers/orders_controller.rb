@@ -4,9 +4,14 @@ class OrdersController < ApplicationController
 		@order = Order.new
 	end
 
+	def show
+		@order = Order.find(params[:id])
+		@feed_2_items = @order.feed_2.paginate(page: params[:page])
+	end
+
 	def create
 	 	@order = Order.new(order_params)	
-	 	if @order.save 	
+	 	if @order.save! 	
 			session[:cart].each do |order_detail|
 				@order_detail = @order.order_details.new(
 			 		product_id: order_detail.first.to_i,
@@ -24,10 +29,27 @@ class OrdersController < ApplicationController
 		end
 	end
 
+	def edit
+		@order = Order.find(params[:id])
+	end
+
+	def update
+		@order = Order.find(params[:id])
+		pr = order_params.merge(order_status: order_params[:order_status].to_i)
+		if @order.update(pr)
+			if current_user.admin?
+				redirect_to admin_orders_path
+			else 
+				redirect_to user_path(current_user.id)
+			end
+		end
+	end
+
 	private
 
 		def order_params
-			params.require(:order).permit(:user_id, :total_price, :name, :address, :phone)
+			params.require(:order).permit(:user_id, :total_price, :name, 
+										  :address, :phone, :order_status)
 		end
 
 end

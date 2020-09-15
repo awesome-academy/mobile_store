@@ -13,4 +13,10 @@ Rails.application.routes.draw do
   resources :comments do
   	resources :sub_comments
   end
+  namespace :admin do
+    resources :products, only: [:new, :create, :edit, :update, :destroy]
+  end
+  namespace :admin do
+    resources :orders, only: [:index, :edit, :update]
+  end
 end
