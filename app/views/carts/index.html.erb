@@ -22,9 +22,11 @@
 		    <ul class="list-group list-group-lg list-group-flush">
 			    <% @sum = 0%>
 			    <% @count = 0%>
+			  
+
 				<% @order_details.each do |order_detail|  %>
-					<% @product_detail = ProductDetail.find(order_detail.first.to_i) %>
-					<% @product = Product.find(@product_detail[:product_id])%>
+					 
+					<% @product = Product.find(order_detail.first.to_i)%>
 					<% quantity = order_detail.last %>
 		
 					<% unit_price = @product.discount_price*quantity %>
@@ -47,16 +49,19 @@
 			                  <!-- Title -->
 			                  <p class="font-size-sm font-weight-bold mb-6">
 			                    <a class="text-body-<%= @product.id %>" href="#">
+
 			                    	<%= @product.name %></a>
-			                    <p class="text-body-<%= @product.id %>">Size <%= @product_detail.size %></p>
+			                    <p class="text-body-<%= @product.id %>">Size </p>
 		                    	<p id="list-<%= @product.id %>">Số lượng:
 
 		                    		<span id = "minus-<%= @product.id %>"><%= link_to '-', edit_cart_path(order_detail.first.to_i), class:"btn-button" ,remote:true  %></span>
 		                    		<span id ="pro-<%= @product.id %>"><%= @quantity %></span>
 		                    		<%= quantity %>
 									<span id = "plus-<%= @product.id %>"><%= link_to '+', edit_cart_path(order_detail.first.to_i, val: "add"), remote: true,class:"btn-button"%></span></br>
-		                    		<span class="text-muted"><%= "#{@product.price} 000 VND" %></span>
+
+		                    		<span class="text-muted"><%= "#{ @product.discount_price} VND" %></span>
 		                    	</p>
+
 			                  </p>
 
 			                  <!--Footer -->
@@ -73,7 +78,7 @@
 			       		
 		     	<% end %>
 		     </ul> 
-			    <div id = "sum-ajax" , align="center"> <span> Tổng tiền: <%= @sum %> 000 VND </span></div>
+			    <div id = "sum-ajax" , align="center"> <span> Tổng tiền: <%= @sum %> VND </span></div>
 			    <%= link_to 'Tiếp tục mua sắm', root_path, class:"order_1" %>
 				<%= link_to 'Tiến hành đặt hàng', new_order_path, class:"order_2" %>
 		<%end%>

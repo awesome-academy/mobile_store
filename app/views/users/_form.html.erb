@@ -1,5 +1,6 @@
 <%= form_for(@user) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
+
 		<%= f.label :name, "Tên đăng nhập:" %>
 		<%= f.text_field :name, class: 'form-control' %>
 
@@ -13,5 +14,4 @@
 		<%= f.password_field :password_confirmation, class: 'form-control' %>
 			
 	<%= f.submit yield(:button_text), class: "submit" %>
-
 <% end %>

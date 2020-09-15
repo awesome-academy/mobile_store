@@ -1,15 +1,13 @@
 
-<!-- Image -->
-
 <div class="card-img">
 	<% if product.discount.present? %>
   <!-- Image -->
-	  <%= link_to product_path(product.id) do %>
+	  <%= link_to admin_product_path(product.id) do %>
 	    <%= image_tag product.image if product.image.attached? %>
 	   <%end%>
 	   
     <%else%>
-	    <%= link_to product_path(product.id) do %>
+	    <%= link_to admin_product_path(product.id) do %>
 	    	<%= image_tag product.image if product.image.attached? %>
   		<% end %>
   	<%end%>

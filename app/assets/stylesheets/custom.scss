@@ -15688,6 +15688,87 @@ input.sluong {
   margin-bottom: 50px;
 }
 
+.timestamp{
+  font-size: 15px;
+}
+
+.list-group-item {
+    margin: 0 auto;
+}
+
+.row {
+    width: 600px;
+}
+
+.modal-content {
+    width: 55% !important;
+    margin: 0 auto !important;
+    margin-bottom: 20px !important;
+}
+
+.row {
+    width: 100%;
+}
+
+.list-group-flush>.list-group-item {
+    width: 90%;
+}
+
+.new_order{
+  margin: 0 auto;
+  width: 60%;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+input {
+  width: 100%;
+  height: 25px;
+  color: white;
+  background-color: #2E2E2E;
+}
+
+input.sluong {
+    width: 40px;
+    height: 25px;
+    color: black;
+    background-color: white;
+    border-radius: 10%;
+    margin-left: 5px;
+    padding: 5px;
+}
+
+.order{
+  width: 100%;
+  height: 35px;
+  color: white;
+  background-color: #2E2E2E;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.sum{
+  margin-left: 36%;
+  margin-bottom: 20px;
+  font-size: 120%;
+}
+
+.empty{
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.nhap_thong_tin{
+  margin-left: 40%;
+}
+
+.infor{
+  margin-left: 10%;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
 .btn-primary.cmt{
   width: 100px;
   padding-bottom: 5px;
@@ -15841,6 +15922,15 @@ p.mb-lg-0{
 .card-img a img{
   width: 100%;
   height: 250px;
+}
+
+.card-action a img{
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  background-color: white;
+  border-radius: 50%;
+  padding: 5px;
 }
 
 .card-action a img{
@@ -16015,4 +16105,274 @@ a.orders{
 
 a.add-cart{
   color: black;
+}
+
+.card-body.px-0{
+  margin-left: 10px;
+}
+
+.index-pr{
+  width: 100%;
+  margin-left: 10%;
+}
+
+.top-image{
+  height: 400px;
+  
+}
+
+
+div.row.align-items-center.mb-7.all{
+  margin-top: 30px; 
+}
+
+.red-a {
+  color: black;
+  font-size: 10px;
+}
+
+.list-group.list-group-lg.list-group-flush.cart{
+  width: 100%;
+}
+
+div.col-4 a img {
+  width: 120px;
+  height:150px;
+  margin-left: 20%; 
+} 
+
+p.font-size-sm.font-weight-bold.mb-6 a{
+  color: black;
+  font-size: 18px;
+}
+
+a.btn-button{
+  font-size: 27px;
+  color: black;
+  padding: 4px;
+  padding-left: 11px;
+  padding-right: 11px;
+}
+
+a.btn-button:hover{
+  color: gray;
+}
+
+a.order_1{
+  padding-top: 8px;
+  padding-bottom: 13px;
+  background-color: black;
+  color: white;
+  margin-bottom: 5px;
+  text-align: center;
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 1%;
+  margin-top: 3%;
+}
+
+a.order_2:hover{
+  color: white;
+  background-color: black;
+}
+
+a.order_2{
+  padding-top: 8px;
+  padding-bottom: 13px;
+  text-align: center;
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 5%;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+a.order_1:hover{
+  color: white;
+  text-align: center;
+}
+
+.modal-content{
+  font-size: 17px;
+}
+label{
+  font-size: 13px;
+}
+
+h3.title{
+  text-align: center;
+}
+
+b.sign-up{
+  font-size: 13px;
+}
+
+input#session_remember_me{
+  height: 17px;
+  margin-left: 0%;
+}
+
+input.submit{
+  font-size: 17px;
+  padding-bottom: 5px;
+}
+
+.card-body.px-0 {
+  margin-left: 10px;
+}
+
+div.flickity-slider-1 img {
+  width: 100%;
+  height: 654px;
+  object-fit:cover; 
+}
+
+a.add-cart{
+  color: white;
+}
+
+a.add-cart:hover{
+  color: white;
+}
+
+.index-pr{
+  width: 100%;
+  margin-left: 10%;
+}
+
+.top-image{
+  height: 400px;
+  
+}
+
+
+div.row.align-items-center.mb-7.all{
+  margin-top: 30px; 
+}
+
+.red-a {
+  color: black;
+  font-size: 10px;
+}
+
+.list-group.list-group-lg.list-group-flush.cart{
+  width: 100%;
+}
+
+div.col-4 a img {
+  width: 120px;
+  height:150px;
+  margin-left: 20%; 
+} 
+
+p.font-size-sm.font-weight-bold.mb-6 a{
+  color: black;
+  font-size: 18px;
+}
+
+a.btn-button{
+  font-size: 27px;
+  color: black;
+  padding: 4px;
+  padding-left: 11px;
+  padding-right: 11px;
+}
+
+a.btn-button:hover{
+  color: gray;
+}
+
+a.order_1{
+  padding-top: 8px;
+  padding-bottom: 13px;
+  background-color: black;
+  color: white;
+  margin-bottom: 5px;
+  text-align: center;
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 1%;
+  margin-top: 3%;
+}
+
+a.order_2:hover{
+  color: white;
+  background-color: black;
+}
+
+a.order_2{
+  padding-top: 8px;
+  padding-bottom: 13px;
+  text-align: center;
+  width: 95%;
+  margin: 0 auto;
+  margin-bottom: 5%;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+a.order_1:hover{
+  color: white;
+  text-align: center;
+}
+
+.modal-content{
+  font-size: 17px;
+}
+label{
+  font-size: 13px;
+}
+
+h3.title{
+  text-align: center;
+}
+
+b.sign-up{
+  font-size: 13px;
+}
+
+input#session_remember_me{
+  height: 17px;
+  margin-left: 0%;
+}
+
+input.submit{
+  font-size: 17px;
+  padding-bottom: 5px;
+}
+
+a.orders{
+  background-color: #F2F2F2;
+}
+
+ul.nav.navbar-nav.navbar-left li a{
+  color: black;
+  font-size: 12px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+ul.nav.navbar-nav.navbar-right li img{
+  width: 20px;
+}
+
+a.logo{
+  color: black;
+  font-size: 20px;
+  margin-bottom: 0px;
+  font-weight: bold;
+}
+
+div.vp{
+  width: 219px;
+}
+
+div.best_seller{
+  width: 250px;
+}
+
+section.sell-off{
+  width: 1000px;
 }

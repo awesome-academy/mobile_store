@@ -4,8 +4,7 @@ class CartsController < ApplicationController
 		if !logged_in? 
 			redirect_to login_path
 		end
-		@product_detail = ProductDetail.find(params[:id])
-		@product = Product.find(@product_detail[:product_id])
+		@product = Product.find(params[:id])
 		if session[:cart].nil?
 			session[:cart] = {}
 			session[:cart][params[:id]] = 1
@@ -27,11 +26,10 @@ class CartsController < ApplicationController
              
 	def edit
 		total
-		@product_detail = ProductDetail.find(params[:id])
-		@product = Product.find(@product_detail[:product_id])
+		@product = Product.find(params[:id])
 		 @order_details = session[:cart]
-		 @product_id = @product_detail[:product_id]
-		 @price = @product.price
+		 @product_id = params[:id]
+		 @price = @product.discount_price
 		if !params[:val].nil?
 			
 			session[:cart][params[:id]] += 1

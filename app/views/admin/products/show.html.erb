@@ -1,4 +1,3 @@
-
 <nav class="py-5">
   <div class="container" style="
     width:  1000px;">
@@ -87,10 +86,10 @@
 
             <!-- Price -->
             <div class="mb-7">
-              <%if @product.discount.present? %>
-              <span class="font-size-lg font-weight-bold text-gray-350 text-decoration-line-through"><%= @product.price %> VND</span>
+             <%if @product.discount.present? %>
+                <span class="font-size-lg font-weight-bold text-gray-350 text-decoration-line-through"><%= @product.price %> VND</span>
               <%end%>
-              <span class="ml-1 font-size-h5 font-weight-bolder text-primary"><%= @product.discount_price %> VND</span>
+                <span class="ml-1 font-size-h5 font-weight-bolder text-primary"><%= @product.discount_price %> VND</span>
             </div>
 
             <!-- Form -->
@@ -136,11 +135,7 @@
                       <span id="ajax_card"><%= link_to 'Thêm vào giỏ hàng', cart_path(@product.id), method: :put, remote:true,  class:"add-cart" %></span>
                     </button>                
               
-                    <!--<div class="mb-2">
-                       <% @product_details.map{ |product_detail| product_detail }.each do |pr| %>
-                        <%= link_to pr[:size] , cart_path(pr[:id]), method: :put,  class:"add-cart" %>
-                      <% end %>               
-                    </div>--> 
+                    
 
                   </div>                 
                 </div>
@@ -150,25 +145,4 @@
         </div>
       </div>
  </section>
-    <div class ="title-review" align ="center" >Customer Reviews <br>
-    	<br>
-    	<h3 id ="number-comment">comments (<%= @product.comments.count %>)</h3>
-    </div>
-	<div class="ajax-form-create container"  >
-		 <%= render "comments/comment_form" %>
-	</div>
-    <div class="review-body" >
-      <div class="row">
-        <div class="col-12 col-md-auto container">
-      		<% if @product.comments.any? %>
-      			
-      			<ul id="comments" style="list-style: none" >
-      				<%= render @comments %>
-      			</ul>
-      		
-      		<% end %>
-        <%= will_paginate @comments %>
-        </div>
-      </div>
-    </div>
-  </div>
+   

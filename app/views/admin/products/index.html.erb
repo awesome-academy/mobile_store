@@ -9,48 +9,39 @@
       
   <div class="row">
     <div class="col-12 col-md-4 col-lg-3">
-      <nav class="mb-10 mb-md-0"  style="
-         margin-top: 70px;">  
+      <nav class="mb-10 mb-md-0"  style="margin-top: 70px;">  
      
         <% if params[:type] == "women" %>     
           <div class="list-group list-group-sm list-group-strong list-group-flush-x">
-            <%= link_to "Tất cả sản phẩm", products_path %>
-            <%= link_to "Thời trang nữ", products_path(type: "women"), class: "orders" %>
-            <%= link_to "Thời trang nam", products_path(type: "men") %>  
-            <%= link_to "Thời trang trẻ em", products_path(type: "kid") %>
-            <%= link_to "Giá ưu đãi ", products_path(type: "sale_off") %>
+            <%= link_to "Tất cả sản phẩm", admin_products_path %>
+            <%= link_to "Thời trang nữ", admin_products_path(type: "women"), class: "orders" %>
+            <%= link_to "Thời trang nam", admin_products_path(type: "men") %>  
+            <%= link_to "Thời trang trẻ em", admin_products_path(type: "kid") %>
+            <%= link_to "Giá ưu đãi ", admin_products_path(type: "sale_off") %>
           </div>
         <% elsif params[:type] == "men" %>
             <div class="list-group list-group-sm list-group-strong list-group-flush-x">
-            <%= link_to "Tất cả sản phẩm", products_path %>
-            <%= link_to "Thời trang nữ", products_path(type: "women") %>
-            <%= link_to "Thời trang nam", products_path(type: "men"), class: "orders" %>  
-            <%= link_to "Thời trang trẻ em", products_path(type: "kid") %>
-            <%= link_to "Giá ưu đãi ", products_path(type: "sale_off") %>
+            <%= link_to "Tất cả sản phẩm", admin_products_path %>
+            <%= link_to "Thời trang nữ", admin_products_path(type: "women"), class: "orders" %>
+            <%= link_to "Thời trang nam", admin_products_path(type: "men") %>  
+            <%= link_to "Thời trang trẻ em", admin_products_path(type: "kid") %>
+            <%= link_to "Giá ưu đãi ", admin_products_path(type: "sale_off") %>
           </div>
         <% elsif params[:type] == "kid" %>
           <div class="list-group list-group-sm list-group-strong list-group-flush-x">
-            <%= link_to "Tất cả sản phẩm", products_path %>
-            <%= link_to "Thời trang nữ", products_path(type: "women") %>
-            <%= link_to "Thời trang nam", products_path(type: "men") %>  
-            <%= link_to "Thời trang trẻ em", products_path(type: "kid"), class: "orders" %>
-            <%= link_to "Giá ưu đãi ", products_path(type: "sale_off") %>
-          </div>
-          <% elsif params[:type] == "sale_off" %>
-            <div class="list-group list-group-sm list-group-strong list-group-flush-x">
-            <%= link_to "Tất cả sản phẩm", products_path %>
-            <%= link_to "Thời trang nữ", products_path(type: "women") %>
-            <%= link_to "Thời trang nam", products_path(type: "men") %>  
-            <%= link_to "Thời trang trẻ em", products_path(type: "kid"), class: "orders" %>
-            <%= link_to "Giá ưu đãi ", products_path(type: "sale_off") %>
+            <%= link_to "Tất cả sản phẩm", admin_products_path %>
+            <%= link_to "Thời trang nữ", admin_products_path(type: "women"), class: "orders" %>
+            <%= link_to "Thời trang nam", admin_products_path(type: "men") %>  
+            <%= link_to "Thời trang trẻ em", admin_products_path(type: "kid") %>
+            <%= link_to "Giá ưu đãi ", admin_products_path(type: "sale_off") %>
           </div>
         <%else%>
           <div class="list-group list-group-sm list-group-strong list-group-flush-x">
-            <%= link_to "Tất cả sản phẩm", products_path, class: "orders" %>
-            <%= link_to "Thời trang nữ", products_path(type: "women") %>
-            <%= link_to "Thời trang nam", products_path(type: "men") %>  
-            <%= link_to "Thời trang trẻ em", products_path(type: "kid") %>
-            <%= link_to "Giá ưu đãi ", products_path(type: "sale_off") %>
+            <%= link_to "Tất cả sản phẩm", admin_products_path %>
+            <%= link_to "Thời trang nữ", admin_products_path(type: "women"), class: "orders" %>
+            <%= link_to "Thời trang nam", admin_products_path(type: "men") %>  
+            <%= link_to "Thời trang trẻ em", admin_products_path(type: "kid") %>
+            <%= link_to "Giá ưu đãi ", admin_products_path(type: "sale_off") %>
           </div>
         <%end%>
       </nav>
@@ -152,15 +143,17 @@
                             <!-- Price -->
                             <div class="price">
                               <% if product.discount.present? %>
-            
-                                 <span class="font-size-lg font-weight-bold text-gray-350 text-decoration-line-through">Price: <%=  product.price %>VND</span>
-                                 <span class="font-size-lg"> Price: <%=  product.discount_price %>VND</span>
+                              <span class="font-size-lg font-weight-bold text-gray-350 text-decoration-line-through">Price: <%=  product.price %> VND</span>
+                                 <span class="font-size-lg"> Price: <%=  product.discount_price %> VND</span>
                               <%else%>
 
-                                <%= product.price %>VND
+                                <%= product.price %> VND
                               <%end%>
                             </div>
-                            
+                      
+                                <%= link_to "edit", edit_admin_product_path(product.id), class: "red-a" %>
+                                <%= link_to "delete", admin_product_path(product.id), method: :delete,class: "red-a" %>
+                  
                           </div>
                         </div>
                       <% end %>   
@@ -175,5 +168,5 @@
     </div>
   </div>
 </div>
- 
+
    

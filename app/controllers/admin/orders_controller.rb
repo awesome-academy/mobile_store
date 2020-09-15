@@ -2,12 +2,16 @@ class Admin::OrdersController < ApplicationController
 	before_action :require_admin
 
 	def index
-		@orders = Order.paginate(page: params[:page])
+
+		@orders = Order.all
 	end
 
 	def show
+ 		
+
 		@order = Order.find(params[:id])
-		@feed_2_items = @order.feed_2.paginate(page: params[:page])
+		@feed_2_items = @order.feed_2
+	
 	end
 
 	private
