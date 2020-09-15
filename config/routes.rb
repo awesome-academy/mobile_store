@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   end
   get "/subtract", to: "carts#subtract", as: "subtract"
   get "/add", to: "carts#add", as: "add"
+  
 end

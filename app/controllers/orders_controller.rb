@@ -24,6 +24,12 @@ class OrdersController < ApplicationController
 		end
 	end
 
+	def show
+		@order = Order.find(params[:id])
+		@order_details = @order.order_details.paginate(page: params[:page])
+  		@feed_2_items = @order.feed_2.paginate(page: params[:page])
+	end
+
 	private
 
 		def order_params

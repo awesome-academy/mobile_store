@@ -7,4 +7,9 @@ class Order < ApplicationRecord
     number_regex = /\d[0-9]\)*\z/
  	validates_format_of :phone, presence: true, :with =>  number_regex, 
  						:message => "Only positive number without spaces are allowed"
+ 	default_scope -> { order(created_at: :desc) }
+ 	
+ 	def feed_2
+		OrderDetail.where("order_id = ?", id)
+	end
 end
