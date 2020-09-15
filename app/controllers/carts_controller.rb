@@ -1,8 +1,11 @@
 class CartsController < ApplicationController	
 	after_action :add_ajax, only: [:edit, :destroy]
 	def update
-
-		@product = Product.find(params[:id])
+		if !logged_in? 
+			redirect_to login_path
+		end
+		@product_detail = ProductDetail.find(params[:id])
+		@product = Product.find(@product_detail[:product_id])
 		if session[:cart].nil?
 			session[:cart] = {}
 			session[:cart][params[:id]] = 1
@@ -23,12 +26,12 @@ class CartsController < ApplicationController
 	end 
              
 	def edit
-
 		total
-		@product = Product.find(params[:id])
+		@product_detail = ProductDetail.find(params[:id])
+		@product = Product.find(@product_detail[:product_id])
 		 @order_details = session[:cart]
-		 @product_id = params[:id]
-		 @price= @product.discount_price
+		 @product_id = @product_detail[:product_id]
+		 @price = @product.price
 		if !params[:val].nil?
 			
 			session[:cart][params[:id]] += 1
