@@ -1,0 +1,20 @@
+<%product = Product.find(order_detail.product_id)%>
+<ul class="list-group list-group-lg list-group-flush">
+  <li class="list-group-item">
+    <div class="row align-items-center">
+      <div class="col-4">
+        <a href="./product.html">
+          <img class="img-fluid" src="./assets/img/products/product-6.jpg" alt="...">
+        </a>
+      </div>
+      <div class="col-8">
+        <p class="font-size-sm font-weight-bold mb-6">
+          <a class="text-body" href="#">
+            <%= "#{product.name}" %></a>
+            <p class="soluong">Số lương: <%= order_detail.quantity %> </p> 
+          <span class="text-muted"><%= "#{product.price} VND" %></span>
+        </p>
+      </div>
+    </div>
+  </li>      
+</ul>
