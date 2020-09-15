@@ -18,9 +18,9 @@
             <div class="card-body mt-auto py-8">
 
               <!-- Button -->
-              <a class="btn btn-white stretched-link" href="shop.html">
+              <%= link_to products_path(type: "women") do %>
                 Shop Women <i class="fe fe-arrow-right ml-2"></i>
-              </a>
+              <% end %>
 
             </div>
           </div>
@@ -40,9 +40,9 @@
             <div class="card-body mt-auto py-8">
 
               <!-- Button -->
-              <a class="btn btn-white stretched-link" href="shop.html">
+              <%= link_to products_path(type: "men") do %>
                 Shop Men <i class="fe fe-arrow-right ml-2"></i>
-              </a>
+              <% end %>
 
             </div>
           </div>
@@ -62,9 +62,9 @@
             <div class="card-body mt-auto py-8">
 
               <!-- Button -->
-              <a class="btn btn-white stretched-link" href="shop.html">
+              <%= link_to products_path(type: "kid") do %>
                 Shop Kids <i class="fe fe-arrow-right ml-2"></i>
-              </a>
+              <% end %>
 
             </div>
           </div>
