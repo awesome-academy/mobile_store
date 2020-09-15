@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
     create_table :orders do |t|
       t.integer :user_id,foreign_key: true
       t.integer :total_price
-      t.integer :order_status
+      t.integer :order_status, default: 0
 
       t.timestamps
     end
