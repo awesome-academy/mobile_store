@@ -1,0 +1,23 @@
+<h1>tao san pham</h1>
+
+<%= form_for [:admin, @product] do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	
+	<%= f.label :name, "Nhap ten san pham" %>
+	<%= f.text_field :name, class: 'form-control' %>
+	
+	<%= f.label :price, "nhap gia san pham" %>
+	<%= f.text_field :price, class: 'form-control' %>
+
+	<ul class=":classify-list">
+	    <li><%= f.select :classify, options_for_select(
+	    			Product.classifies)%></li>
+	</ul>
+
+	<%= f.submit %>
+	<span class="image">
+	<%= f.file_field :image %>
+	</span>
+<% end %>
+
+

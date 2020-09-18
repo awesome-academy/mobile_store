@@ -24,10 +24,11 @@
 			Hình thức thanh toán: Thanh toán khi nhận hàng
 		</div>
 
+
 		<b class = "nhap_thong_tin">Vui lòng nhập thông tin giao hàng</b>
         <div class="form">
         	<%= form_for @order do |f| %>
-				<%= f.hidden_field :user_id, value: 1 %>
+				<%= f.hidden_field :user_id, value: session[:user_id] %>
 
 				<%= f.hidden_field :total_price, value: @sum %>
 

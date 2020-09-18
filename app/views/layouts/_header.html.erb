@@ -1281,7 +1281,7 @@
                 <div class="custom-control custom-control-inline custom-control-size mb-2">
                   <input type="radio" class="custom-control-input" name="modalWaitListSize" id="modalWaitListSizeSix" value="8.5" data-toggle="form-caption" data-target="#modalWaitListSizeCaption">
                   <label class="custom-control-label" for="modalWaitListSizeSix">LG</label>
-                </div>
+          user_path(session[:user_id])      </div>
                 <div class="custom-control custom-control-inline custom-control-size mb-2">
                   <input type="radio" class="custom-control-input" name="modalWaitListSize" id="modalWaitListSizeSeven" value="9" data-toggle="form-caption" data-target="#modalWaitListSizeCaption">
                   <label class="custom-control-label" for="modalWaitListSizeSeven">XL</label>
@@ -1462,15 +1462,23 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
       <div class="container">
-
-        <!-- Brand -->
         <a class="navbar-brand" href="./overview.html">
           Shopper.
         </a>
-
-        <li><%= link_to "Home", root_path %></li>
-        <li id = "cart_ajax"><%= link_to "cart", carts_path  %></li>
-
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Home", root_path %></li>
+            <li id = "cart_ajax"><%= link_to "cart", carts_path  %></li>
+            <% if logged_in? %>
+              <li><%= link_to "Account", user_path(session[:user_id]) %></li>
+              <%if current_user.admin? %>
+                <li><%= link_to "admin", admin_orders_path %></li>
+              <%end%>
+            <% else %>
+              <li><%= link_to "Log in", login_path %></li>
+            <% end %>
+          </ul>
+        </nav>
       </div>
     </nav>
 
@@ -1492,3 +1500,4 @@
         </div>
       </div>
     </div>
+     

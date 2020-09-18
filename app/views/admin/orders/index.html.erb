@@ -1,4 +1,4 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, 'All orders') %>
 
 <div class="container">
   <div class="row">
@@ -7,18 +7,24 @@
     margin-top: 70px;">       
         <div class = "orders"><%= link_to "Order", user_path(session[:user_id]) %></div>
         <div class="list-group list-group-sm list-group-strong list-group-flush-x">
-          <%= link_to "Edit your account", edit_user_path(session[:user_id]) %>
-         	<%= link_to "Log out", logout_path, method: :delete %>                
+          <%= link_to "Add product", new_admin_product_path %>              
         </div>
       </nav>
     </div>
     <div class="col-12 col-md-9 col-lg-8 offset-lg-1">
         <div class="row">
           <div class="col-12 text-center">
-            <h3 class="mb-10">My Account</h3>
+            <h3 class="mb-10">All orders</h3>
           </div>
         </div>
-    	<%= render 'shared/feed' %>
+    	
+		<ul class="users">
+			<% @orders.each do |order| %>
+			<%= render order %>
+			<% end %>
+		</ul>
+		<%= will_paginate %>
+
     </div>
   </div>
 </div>
