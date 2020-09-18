@@ -1,18 +1,18 @@
-	<li id="@product-<%= @product.id %>">
+	<li >
 		<span class="user"><%= link_to @product.name %></span>
 		<span class="content">
 			<%= @product.price %>
 		</span>
-		<%= link_to 'Add to Cart', cart_path, class:"btn-button" %>
+		<span id="ajax_card"><%= link_to 'Add to Cart', cart_path(@product.id), method: :put, remote:true,  class:"btn-button" %> </span>
 	</li>
-	<section class="comment_form_form">
-		<%= render 'shared/comment_form' %>
-	</section>
+	<div class="ajax-form-create">
+      <%= render "comments/comment_form" %>
+  	</div>
 
 	<div class="col-md-8">
 		<% if @product.comments.any? %>
 			<h3>comments (<%= @product.comments.count %>)</h3>
-			<ol class="comments">
+			<ol id="comments">
 				<%= render @comments %>
 			</ol>
 		<%= will_paginate @comments %>

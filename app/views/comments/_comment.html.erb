@@ -1,14 +1,20 @@
-<li >
-	<span class="user"><b><%= comment.user.name %></b></span> </div>
+<li id="comment-<%= comment.id %>">
+	<span class="user"><b><%= comment.user.name %></b></span>
 	
-	<span class="content"><%= comment.content %></span><br>
+	<span id="content-<%= comment.id %>"><%= comment.content %></span><br>
 
 	<span class="timestamp">
+		<% if current_user && current_user.current_user?(comment.user) %>
+				<span id ="delete_ajax" ><%= link_to "delete", comment_path(comment), method: :delete, data: { confirm: "You sure?" }, remote: true  %></span>
+				<span id="edit-comments-<%= comment.id %>"><%= link_to "edit", edit_comment_path(comment), remote: true %></span>
+		<% end %>
+		<span id="sub_comment-<%= comment.id %>"><%= link_to "Reply", new_comment_sub_comment_path(comment),remote: true %></span>
+		
+		<br>
 		Posted <%= time_ago_in_words(comment.created_at) %> ago.
-	<%= link_to "Reply", new_comment_sub_comment_path(comment) %>
-	<% if current_user && current_user.current_user?(comment.user) %>
-		<%= link_to "delete", comment_path(comment), method: :delete, data: { confirm: "You sure?" } %>
-		<%= link_to "edit", edit_comment_path(comment) %>
-	<% end %></span><br>
-	<%= render comment.sub_comments %>
+		
+		
+	</span>
+	<div id="comment-duongnt-<%= comment.id%>"></div>
+	<div id="sub-comments"> <%=render comment.sub_comments %></div>
 </li>	

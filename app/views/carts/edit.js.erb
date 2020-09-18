@@ -1,0 +1,4 @@
+
+$("#list-<%= @product.id %>").html( '<%= j render "edit" %>');
+$("#sum-ajax").html(' Tong tien: <%= j @total %> VND');
+$(".mx-auto").html('Giỏ hàng của bạn (<%= @total_quantity %>)');

@@ -1,0 +1,7 @@
+<p id = "list-<%= @product.id %>">So lương:
+
+	<span id = "minus-<%= @product.id %>"><%= link_to '-', edit_cart_path(@product_id), class:"btn-button" ,remote:true  %></span>
+	<span id ="pro-<%= @product.id %>"><%= @quantity %></span>
+	<span id = "plus-<%= @product.id %>"><%= link_to '+', edit_cart_path(@product_id, val: "add"), remote: true,class:"btn-button"%></span></br>
+	<span class="text-muted"><%= "#{@product.price} VND" %></span>
+</p>
