@@ -28,7 +28,7 @@ class CartsController < ApplicationController
 		@product = Product.find(params[:id])
 		 @order_details = session[:cart]
 		 @product_id = params[:id]
-		 @price = @product.price
+		 @price= @product.discount_price
 		if !params[:val].nil?
 			
 			session[:cart][params[:id]] += 1
@@ -79,7 +79,7 @@ class CartsController < ApplicationController
 			session[:cart].each do |order_detail|
 
 			 	@product = Product.find(order_detail.first.to_i)
-			 	@price = @product.price
+			 	@price = @product.discount_price
 			 	@quantity = order_detail.last
 			 	@total += @price*@quantity
 			 	@total_quantity += @quantity

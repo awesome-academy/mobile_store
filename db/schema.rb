@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_020234) do
+ActiveRecord::Schema.define(version: 2020_09_22_020336) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -60,21 +60,13 @@ ActiveRecord::Schema.define(version: 2020_09_21_020234) do
     t.string "phone"
   end
 
-  create_table "product_details", force: :cascade do |t|
-    t.integer "size"
-    t.integer "product_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_product_details_on_product_id"
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.integer "price"
     t.string "branch"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "classify"
+    t.integer "discount"
   end
 
   create_table "sub_comments", force: :cascade do |t|
@@ -93,10 +85,11 @@ ActiveRecord::Schema.define(version: 2020_09_21_020234) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "admin", default: false
+
     t.integer "classify"
     t.index ["email"], name: "index_users_on_email", unique: true
+
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "product_details", "products"
 end

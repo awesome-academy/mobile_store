@@ -1,0 +1,26 @@
+
+  <% @products.each do |product| %>
+        <% Product.buy_count.each do |product_count| %>
+          <%if product.id == product_count.first %>
+
+            <div class="img-fluid " >
+  
+                
+                  <%= image_tag "https://danviet.mediacdn.vn/upload/1-2015/images/2015-03-30/1434350132-livoanh7_mzjg.jpg" %> 
+                 <%#= product.image.attach(params[:product][:image]) %>
+             
+                 <span class="btn btn-link container text-left " ><%= link_to "Shop now" , product_path(product.id) %>
+                  </span>
+                 <br>
+                <b ><%= product.name %></b>
+                 <br>
+                 <span class="font-size-lg text-left">Price: <%= product.discount_price %> VND </span>
+          <%end%>
+        <%end%>
+    </div>
+   
+ <%end%>
+
+
+
+           
