@@ -1,5 +1,6 @@
-<li id="comment-<%= comment.id %>">
-	<span class="user"><b><%= comment.user.name %></b></span>
+
+<li id="comment-<%= comment.id %>" class="container-fluid pt-3 my-5 border"  magrin ="100 px" >
+	<span class="user"><b><%= comment.user.name %></b></span><br>
 	
 	<span id="content-<%= comment.id %>"><%= comment.content %></span><br>
 
@@ -16,5 +17,7 @@
 		
 	</span>
 	<div id="comment-duongnt-<%= comment.id%>"></div>
+	<hr width ="1000 px">
 	<div id="sub-comments"> <%=render comment.sub_comments %></div>
-</li>	
+</li>
+

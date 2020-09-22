@@ -3,14 +3,18 @@ class CommentsController < ApplicationController
 	before_action :find_comment, only: [:edit, :update, :destroy, :correct_user]
 	before_action :correct_user, only: [:edit, :update]
 	after_action :add_ajax, only: [:edit, :update, :destroy]
+
+
 	def create
 		@product = Product.find_by id: comment_params[:product_id]
 		@comment = @product.comments.build(comment_params)
 		@comment.user= current_user
+
 		if @comment.save!
 			flash[:success] = "Comment created!"
 			
 		end
+		@total_comment =@product.comments.count
 		respond_to do |format|
 				format.html {render_to @product}
 				format.js
@@ -34,10 +38,12 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
+		@product = @comment.product
 		@comment.destroy
-		
+		@total_comment =@product.comments.count
 		
 	end
+
 
 	
 
