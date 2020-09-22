@@ -2,3 +2,4 @@
  $('#comment_content').val('');
  $('#comments').html('<%= j render @product.comments %>')
  	.appendTo('#comments');
+ $("#number-comment").html('Comments(<%= j @total_comment %>) ');
