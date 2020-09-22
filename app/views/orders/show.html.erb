@@ -3,8 +3,8 @@
 		<strong class="mx-auto">Don hàng của bạn </strong>
     </div>
     <%= render 'shared/feed_2' %>   
-<div class = "sum">Tổng tiền: <%= @order.total_price %>VND</div>
-<div class = "sum">Trạng thái đơn hàng: <%= @order.order_status %></div>
+	<div class = "sum">Tổng tiền: <%= @order.total_price %>VND</div>
+	<div class = "sum">Trạng thái đơn hàng: <%= @order.order_status %></div>
 
 	<%if current_user.admin? %>
 		<%= form_for @order, url: order_path(@order.id), method: :put do |f| %>
@@ -13,11 +13,7 @@
 				<%= f.hidden_field :name, value: @order.name %>
 				<%= f.hidden_field :address, value: @order.address %>
 				<%= f.hidden_field :phone, value: @order.phone %>
-			<ul class="status-list">
-			    <li><%= f.select :order_status, options_for_select(
-			    	Order.order_statuses.reject{|k| k == "Bị hủy bởi người mua"}
-			    	)%></li>
-			</ul>
+			
 			<%= f.submit %>
 		<% end %>
 	<%else%>
@@ -27,7 +23,7 @@
 				<%= f.hidden_field :name, value: @order.name %>
 				<%= f.hidden_field :address, value: @order.address %>
 				<%= f.hidden_field :phone, value: @order.phone %>
-				<%= f.hidden_field :order_status, value: 6 %>
+				
 			<%= f.submit "Hủy đơn hàng" %>
 		<% end %>
 	<% end %>

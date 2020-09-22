@@ -5,10 +5,6 @@ class OrdersController < ApplicationController
 		@order = Order.new
 	end
 
-	def show
-		@feed_2_items = @order.feed_2.paginate(page: params[:page])
-	end
-
 	def create
 	 	@order = Order.new(order_params)	
 	 	if @order.save! 	
@@ -41,6 +37,13 @@ class OrdersController < ApplicationController
 				redirect_to user_path(current_user.id)
 			end
 		end
+	end
+
+	def show
+		@order = Order.find(params[:id])
+		@order_details = @order.order_details.paginate(page: params[:page])
+  		@feed_2_items = @order.feed_2.paginate(page: params[:page])
+
 	end
 
 	private
