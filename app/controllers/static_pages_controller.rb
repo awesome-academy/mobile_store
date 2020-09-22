@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  def home
+  def home   
     @feed_items=Product.all.paginate(page: params[:page])
   end
 end

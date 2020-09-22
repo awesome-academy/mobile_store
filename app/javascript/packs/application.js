@@ -7,6 +7,17 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("jquery")
+import "bootstrap"
+require("packs/main")
+require("packs/bootstrap.min").start()
+require("packs/jquery-3.3.1.min").start()
+require("packs/jquery.slicknav").start()
+require("packs/jquery.magnific-popup.min").start()
+require("packs/jquery.nice-select.min").start()
+require("packs/owl.carousel.min").start()
+require("packs/mixitup.min").start()
+
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

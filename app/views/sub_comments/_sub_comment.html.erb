@@ -1,9 +1,40 @@
-<ul >
-	<span class="user"><b><%= sub_comment.user.name %></b></span><br>
-	<span class="content"><%= sub_comment.content %></span><br>
-	<span class="timestamp">
-		Posted <%= time_ago_in_words(sub_comment.created_at) %> ago
-		<%= link_to "delete", comment_sub_comment_path(sub_comment), method: :delete, data: { confirm: "You sure?" } %>
-		<%= link_to "edit",  edit_comment_sub_comment_path(sub_comment) %>
-	</span>
-</ul>	
+<div class="review review-child">
+			<div class="review-body">
+
+				<!-- Content -->
+				<div class="row">
+					<div class="col-12 col-md-auto">
+
+						<!-- Avatar -->
+						<div class="avatar avatar-xxl mb-6 mb-md-0">
+							<span class="avatar-title rounded-circle">
+							<i class="fa fa-user"></i>
+							</span>
+						</div>
+
+					</div>
+					<div class="col-12 col-md">
+
+						<!-- Header -->
+						<div class="row mb-6">
+							
+							<div class="col-12">
+
+								<!-- Time -->
+								<span class="font-size-xs text-muted">
+									William Stokes, <time datetime="2019-07-14">14 Jul 2019</time>
+								</span>
+
+							</div>
+						</div>
+
+						<!-- Text -->
+						<p class="text-gray-500">
+							<%= sub_comment.content %>
+						</p>
+
+					</div>
+				</div>
+
+			</div>
+		</div>

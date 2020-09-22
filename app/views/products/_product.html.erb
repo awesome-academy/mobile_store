@@ -1,14 +1,49 @@
-<div class="col-6 col-sm-4 col-md px-1">
+<!-- Products -->
+<div class="row">
+  <div class="col-6 col-md-4">
+
     <!-- Card -->
-      <div class="card mb-2">
-    <!-- Image -->
-      < %= class="card-img" image_tag product.image if product.image.attached? %>
-    <!-- Overlay -->
-            <p class="my-0 font-size-xxs text-center text-white">
-              <i class="fe fe-heart mr-2"></i> 248 <i class="fe fe-message-square mr-2 ml-3"></i> 7
-            </p>
-            </div>
-<span><%= product.name %></span>
-<span><%= product.branch %></span>
-<%= link_to "view product", product_path(product)%>
+    <div class="card mb-7">
+
+      <!-- Image -->
+      <div class="card-img">
+        <!-- Image -->
+        <% if product.image.attached? %>
+          <%= image_tag product.image %>
+        <% else %>
+          <img src="https://www.w3schools.com/images/lamp.jpg" alt="Lamp" width="32" height="32">
+        <% end %>
+
+        <!-- Actions -->
+        <div class="card-actions">
+
+          <span class="card-action">
+            <button class="btn btn-xs btn-circle btn-white-primary" data-toggle="button">
+              <i class="fe fe-shopping-cart"></i>
+            </button>
+          </span>
+
+        </div>
+
+      </div>
+
+      <!-- Body -->
+      <div class="card-body px-0">
+
+        <!-- Title -->
+        <div class="font-weight-bold">
+          <%= link_to product.name, product_path(product) %>
+        </div>
+
+        <!-- Price -->
+        <div class="font-weight-bold text-muted">
+        <%= product.price %>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  
 </div>

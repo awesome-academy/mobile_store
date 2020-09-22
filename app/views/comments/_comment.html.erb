@@ -1,14 +1,80 @@
-<li >
-	<span class="user"><b><%= comment.user.name %></b></span> </div>
-	
-	<span class="content"><%= comment.content %></span><br>
+<div class="mt-8">
+	<div class="review">
+		<div class="review-body">
+			<div class="row">
+				<div class="col-12 col-md-auto">
 
-	<span class="timestamp">
-		Posted <%= time_ago_in_words(comment.created_at) %> ago.
-	<%= link_to "Reply", new_comment_sub_comment_path(comment) %>
-	<% if current_user && current_user.current_user?(comment.user) %>
-		<%= link_to "delete", comment_path(comment), method: :delete, data: { confirm: "You sure?" } %>
-		<%= link_to "edit", edit_comment_path(comment) %>
-	<% end %></span><br>
-	<%= render comment.sub_comments %>
-</li>	
+					<!-- Avatar -->
+					<div class="avatar avatar-xxl mb-6 mb-md-0">
+						<span class="avatar-title rounded-circle">
+						<i class="fa fa-user"><%= comment.user.name %></i>
+						</span>
+					</div>
+
+				</div>
+				<div class="col-12 col-md">
+
+					<!-- Header -->
+					<div class="row mb-6">
+						<div class="col-12">
+
+						<!-- Time -->
+						<span class="font-size-xs text-muted">
+							Logan Edwards, <time datetime="2019-07-25">25 Jul 2019</time>
+						</span>
+
+						</div>
+					</div>
+
+					<!-- Text -->
+					<p class="text-gray-500">
+						<%= comment.content %>
+					</p>
+
+					<!-- Footer -->
+					<div class="row align-items-center">
+						<div class="col-auto d-none d-lg-block">
+
+						<!-- Text -->
+						<%= link_to "edit", edit_comment_path(comment) %>
+						<%= link_to "delete", comment_path(comment), method: :delete %>
+
+						</div>
+						<div class="col-auto mr-auto">
+
+						<!-- Rate -->
+						<div class="rate">
+							<a class="rate-item" data-toggle="vote" data-count="3" href="#" role="button">
+							<i class="fe fe-thumbs-up"></i>
+							</a>
+							<a class="rate-item" data-toggle="vote" data-count="0" href="#" role="button">
+							<i class="fe fe-thumbs-down"></i>
+							</a>
+						</div>
+
+						</div>
+						<div class="col-auto d-none d-lg-block">
+
+						<!-- Text -->
+						<p class="mb-0 font-size-sm">Comments(<%= comment.sub_comments.count %>)</p>
+
+						</div>
+						<div class="col-auto">
+
+							<!-- Button -->
+							<%= link_to "Comment", new_comment_sub_comment_path(comment) %>
+		
+						</div>
+					</div>
+				</div>
+				<div>
+			</div>
+		</div>
+		<%= render comment.sub_comments %>
+	</div>
+</div>
+
+
+
+
+			
