@@ -10,11 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_09_025312) do
+ActiveRecord::Schema.define(version: 2020_09_21_020234) do
 
-  create_table "carts", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.integer "record_id", null: false
+    t.integer "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
   create_table "comments", force: :cascade do |t|
@@ -36,12 +52,20 @@ ActiveRecord::Schema.define(version: 2020_09_09_025312) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.integer "total_price"
-    t.integer "order_status"
+    t.integer "order_status", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "address"
     t.string "phone"
+  end
+
+  create_table "product_details", force: :cascade do |t|
+    t.integer "size"
+    t.integer "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_product_details_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -50,6 +74,7 @@ ActiveRecord::Schema.define(version: 2020_09_09_025312) do
     t.string "branch"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "classify"
   end
 
   create_table "sub_comments", force: :cascade do |t|
@@ -63,12 +88,14 @@ ActiveRecord::Schema.define(version: 2020_09_09_025312) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "phone"
-    t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.string "remember_digest"
+    t.boolean "admin", default: false
+    t.integer "classify"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "product_details", "products"
 end

@@ -1,60 +1,47 @@
-
-
-
 <section>
-      <div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
         <div class="row">
-          <div class="col-12">
-            <div class="row">
-              <div class="col-12 col-md-6">
-
-         
-                  	
-                  		<%= image_tag "https://danviet.mediacdn.vn/upload/1-2015/images/2015-03-30/1434350132-livoanh7_mzjg.jpg" %>
-                 	 	<%= image_tag @product.image if @product.image.attached? %>
-     
-   
-
-              </div>
-               <div class ="detail_product">
-		                <h3 class="mb-2"><span class="user"><%= link_to @product.name %></span></h3>
-		                
-		                  <span class="font-size-lg font-weight-bold text-gray-350 " class="content">
-								Price: <%= @product.price %> VND</span>
-				</div>
-            </div>
+          <div class="col-12 col-md-6">             	
+            <%= image_tag "https://danviet.mediacdn.vn/upload/1-2015/images/2015-03-30/1434350132-livoanh7_mzjg.jpg" %>
+             <%= image_tag @product.image if @product.image.attached? %>
           </div>
+          <div class ="detail_product">
+            <h3 class="mb-2"><span class="user"><%= link_to @product.name %></span></h3>
+            
+            <span class="font-size-lg font-weight-bold text-gray-350 " class="content">Price: <%= @product.price %> VND</span>
+	        </div>
         </div>
       </div>
- </section>
-    <div class ="title-review" align ="center" >Customer Reviews <br>
-    	<br>
-    	<h3 id ="number-comment">comments (<%= @product.comments.count %>)</h3>
     </div>
+  </div>
+</section>
+  <div class ="title-review" align ="center" >Customer Reviews <br>
+  	<br>
+  	<h3 id ="number-comment">comments (<%= @product.comments.count %>)</h3>
+  </div>
 	<div class="ajax-form-create container"  >
 		 <%= render "comments/comment_form" %>
 	</div>
 
   <div  >
 
-                <div class="review-body" >
-                  <div class="row">
-                    <div class="col-12 col-md-auto container">
-						
+  <div class="review-body" >
+    <div class="row">
+      <div class="col-12 col-md-auto container">
+        <% if @product.comments.any? %>
+        	
+        	<ul id="comments" style="list-style: none" >
+        		<%= render @comments %>
+        	</ul>
 
-							<% if @product.comments.any? %>
-								
-								<ul id="comments" style="list-style: none" >
-									<%= render @comments %>
-								</ul>
-							
-							<% end %>
-
-		                <%= will_paginate @comments %>
-                    </div>
-                  </div>
-                </div>
+        <% end %>
+        <%= will_paginate @comments %>
+      </div>
+    </div>
   </div>
+</div>
 
 
 
