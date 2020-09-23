@@ -6,4 +6,5 @@ class ProductsController < ApplicationController
       @comments = @product.comments.sort_by_created.paginate(page: params[:page], per_page: 6)
 	end
 
+
 end

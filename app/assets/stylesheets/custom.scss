@@ -15254,7 +15254,6 @@ input.sluong {
   margin-bottom: 50px;
 }
 
-
 .btn-primary.cmt{
   width: 100px;
   padding-bottom: 5px;
@@ -15284,7 +15283,6 @@ a {
    text-decoration: none !important;
 }
 
-
 .order_details_btn a{
   color: gray;
   border: 1px solid gray;
@@ -15307,14 +15305,14 @@ a {
   border-top: 1px solid black;
   padding: 6px;
   font-size: 15px;
-  background-color: #F2F2F2;
+  background-color: white;
 }
 
 .orders{
   border-top: 1px solid black;
   padding: 6px;
   font-size: 15px;
-  background-color: #BDBDBD;
+  background-color: #F2F2F2;
 }
 
 .orders a{
@@ -15322,7 +15320,7 @@ a {
 }
 
 .list-group-flush-x a:hover{
-  background-color:  #BDBDBD;
+  background-color: #F2F2F2;
   color: black;
 }
 

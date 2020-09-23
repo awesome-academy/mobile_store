@@ -8,6 +8,9 @@ class Order < ApplicationRecord
  	validates_format_of :phone, presence: true, :with =>  number_regex, 
  						:message => "Only positive number without spaces are allowed"
  	scope :order_by_time, -> { order(created_at: :desc) }
+ 	enum order_status: {"Đang chờ xử lý" => 0, "Bị hủy bởi người bán" => 1, "Đã xác nhận" => 2,
+ 						"Giao hàng thanh công" => 3, "Giao hàng thất bại" => 4,
+ 						"Đã hoàn lại" => 5, "Bị hủy bởi người mua" => 6}
  	
  	def feed_2
 		self.order_details
