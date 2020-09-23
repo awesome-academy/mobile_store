@@ -1,48 +1,239 @@
+
+<nav class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        <!-- Breadcrumb -->
+        <ol class="breadcrumb mb-0 font-size-xs text-gray-400">
+          <li class="breadcrumb-item">
+            <a class="text-gray-400" href="index.html">Trang chủ</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a class="text-gray-400" href="shop.html">Thời trang nữ</a>
+          </li>
+        </ol>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
 <section>
   <div class="container">
     <div class="row">
       <div class="col-12">
         <div class="row">
-          <div class="col-12 col-md-6">             	
-            <%= image_tag "https://danviet.mediacdn.vn/upload/1-2015/images/2015-03-30/1434350132-livoanh7_mzjg.jpg" %>
-             <%= image_tag @product.image if @product.image.attached? %>
+          <div class="col-12 col-md-6">
+
+            <!-- Card -->
+            <div class="card">
+
+              <!-- Badge -->
+              <div class="badge badge-primary card-badge text-uppercase">
+                Sale
+              </div>
+
+              <!-- Slider -->
+              <div class="mb-4 flickity-enabled is-fade" data-flickity="{&quot;draggable&quot;: false, &quot;fade&quot;: true}" id="productSlider" tabindex="0">
+
+                <!-- Item -->
+                
+
+                <!-- Item -->
+                
+
+                <!-- Item -->
+                
+
+              <div class="flickity-viewport" style="height: 637.625px; touch-action: pan-y;">
+                <div class="flickity-slider-1" style="left: 0px; transform: translateX(0%);">
+                  <%= image_tag @product.image if @product.image.attached?%>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class ="detail_product">
-            <h3 class="mb-2"><span class="user"><%= link_to @product.name %></span></h3>
-            
-            <span class="font-size-lg font-weight-bold text-gray-350 " class="content">Price: <%= @product.price %> VND</span>
-	        </div>
+
+            <!-- Slider -->
+            <div class="flickity-nav mx-n2 mb-10 mb-md-0 flickity-enabled is-draggable" data-flickity="{&quot;asNavFor&quot;: &quot;#productSlider&quot;, &quot;contain&quot;: true, &quot;wrapAround&quot;: false}" tabindex="0">
+
+              <!-- Item -->
+              
+
+              <!-- Item -->
+              
+
+              <!-- Item -->
+              
+
+            <div class="flickity-viewport" style="height: 97px; touch-action: pan-y;"><div class="flickity-slider" style="left: 0px; transform: translateX(0%);"><div class="col-12 px-2 is-nav-selected is-selected" style="max-width: 113px; position: absolute; left: 0%;">
+
+                <!-- Image -->
+                <div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-7.jpg);"></div>
+
+              </div><div class="col-12 px-2" style="max-width: 113px; position: absolute; left: 20.4%;" aria-hidden="true">
+
+                <!-- Image -->
+                <div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-122.jpg);"></div>
+
+              </div><div class="col-12 px-2" style="max-width: 113px; position: absolute; left: 40.79%;" aria-hidden="true">
+
+                <!-- Image -->
+                <div class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-146.jpg);"></div>
+
+              </div></div></div></div>
+
+          </div>
+          <div class="col-12 col-md-6 pl-lg-10">
+
+            <!-- Header -->
+            <div class="row mb-1">
+              <div class="col">
+
+                <!-- Preheading -->
+                <a class="text-muted" href="shop.html"> Thời trang nữ </a>
+
+              </div>
+              <div class="col-auto">
+
+                <!-- Rating -->
+                <div class="rating font-size-xs text-dark" data-value="4">
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="rating-item">
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+
+                <a class="font-size-sm text-reset ml-2" href="#reviews">
+                  Reviews (6)
+                </a>
+
+              </div>
+            </div>
+
+            <!-- Heading -->
+            <h3 class="mb-2"><%= @product.name %></h3>
+
+            <!-- Price -->
+            <div class="mb-7">
+              <span class="font-size-lg font-weight-bold text-gray-350 text-decoration-line-through"><%= @product.price %>000 VND</span>
+              <span class="ml-1 font-size-h5 font-weight-bolder text-primary">$85.00</span>
+            </div>
+
+            <!-- Form -->
+            <form>
+              <div class="form-group">
+
+                <!-- Radio -->
+                <div class="mb-8 ml-n1">
+                  <div class="custom-control custom-control-inline custom-control-img">
+                    <input type="radio" class="custom-control-input" id="imgRadioOne" name="imgRadio" data-toggle="form-caption" data-target="#colorCaption" value="White" checked="">
+                    <label class="custom-control-label" for="imgRadioOne">
+                      <span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-7.jpg);"></span>
+                    </label>
+                  </div>
+                  <div class="custom-control custom-control-inline custom-control-img">
+                    <input type="radio" class="custom-control-input" id="imgRadioTwo" name="imgRadio" data-toggle="form-caption" data-target="#colorCaption" value="Black">
+                    <label class="custom-control-label" for="imgRadioTwo">
+                      <span class="embed-responsive embed-responsive-1by1 bg-cover" style="background-image: url(assets/img/products/product-49.jpg);"></span>
+                    </label>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group">
+
+                <!-- Label -->
+                <p class="mb-5">
+                  Size: <strong><span id="sizeCaption">7.5</span></strong>
+                </p>
+
+                <!-- Radio -->
+                <div class="mb-2">
+                  <div class="custom-control custom-control-inline custom-control-size mb-2">
+                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioOne" value="6" data-toggle="form-caption" data-target="#sizeCaption">
+                    <label class="custom-control-label" for="sizeRadioOne">6</label>
+                  </div>
+                  
+                  <div class="custom-control custom-control-inline custom-control-size mb-2">
+                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioOne" value="6" data-toggle="form-caption" data-target="#sizeCaption">
+                    <label class="custom-control-label" for="sizeRadioOne">6</label>
+                  </div>
+
+                  <div class="custom-control custom-control-inline custom-control-size mb-2">
+                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioOne" value="6" data-toggle="form-caption" data-target="#sizeCaption">
+                    <label class="custom-control-label" for="sizeRadioOne">6</label>
+                  </div>
+
+                  <div class="custom-control custom-control-inline custom-control-size mb-2">
+                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioOne" value="6" data-toggle="form-caption" data-target="#sizeCaption">
+                    <label class="custom-control-label" for="sizeRadioOne">6</label>
+                  </div>
+
+                  <div class="custom-control custom-control-inline custom-control-size mb-2">
+                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioOne" value="6" data-toggle="form-caption" data-target="#sizeCaption">
+                    <label class="custom-control-label" for="sizeRadioOne">6</label>
+                  </div>
+
+                  <div class="custom-control custom-control-inline custom-control-size mb-2">
+                    <input type="radio" class="custom-control-input" name="sizeRadio" id="sizeRadioOne" value="6" data-toggle="form-caption" data-target="#sizeCaption">
+                    <label class="custom-control-label" for="sizeRadioOne">6</label>
+                  </div>
+                </div>
+
+                <!-- Size chart -->
+                <p class="mb-8">
+                  <img src="assets/img/icons/icon-ruler.svg" alt="..." class="img-fluid"> <a class="text-reset text-decoration-underline ml-3" data-toggle="modal" href="#modalSizeChart">Size chart</a>
+                </p>
+
+                <div class="form-row mb-7">
+                  <div class="col-12 col-lg">
+
+                    <!-- Submit -->
+                    <button type="submit" class="btn btn-block btn-dark mb-2">
+                      <span id="ajax_card"><%= link_to 'Thêm vào giỏ hàng', cart_path(@product.id), method: :put, remote:true,  class:"add-cart" %> </span>
+                    </button>
+
+
+                  </div>
+                  <div class="col-12 col-lg-auto">
+
+                  </div>
+                </div>
+
+              </div>
+            </form>
+
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-  <div class ="title-review" align ="center" >Customer Reviews <br>
-  	<br>
-  	<h3 id ="number-comment">comments (<%= @product.comments.count %>)</h3>
-  </div>
-	<div class="ajax-form-create container"  >
-		 <%= render "comments/comment_form" %>
+
+
+	
+<div class="ajax-form-create">
+  <%= render "comments/comment_form" %>
 	</div>
 
-  <div  >
-
-  <div class="review-body" >
-    <div class="row">
-      <div class="col-12 col-md-auto container">
-        <% if @product.comments.any? %>
-        	
-        	<ul id="comments" style="list-style: none" >
-        		<%= render @comments %>
-        	</ul>
-
-        <% end %>
-        <%= will_paginate @comments %>
-      </div>
-    </div>
-  </div>
+<div class="col-md-8">
+	<% if @product.comments.any? %>
+		<h3>comments (<%= @product.comments.count %>)</h3>
+		<ol id="comments">
+			<%= render @comments %>
+		</ol>
+	<%= will_paginate @comments %>
+	<% end %>
 </div>
-
-
-
-           

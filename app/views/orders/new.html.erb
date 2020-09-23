@@ -32,6 +32,8 @@
 
 				<%= f.hidden_field :total_price, value: @sum %>
 
+				<%= f.hidden_field :order_status, value: 0 %>
+
 				<%= f.label :name, "Tên khách hàng:" %>
 				<%= f.text_field :name, class: 'form-control' %>
 				
@@ -41,7 +43,7 @@
 				<%= f.label :phone, "Số điện thoại:" %>
 				<%= f.text_field :phone, class: 'form-control' %>
 
-				<%= f.submit "GIAO ĐẾN ĐỊA CHỈ NÀY" %>
+				<%= f.submit "Giao đến địa chỉ này" %>
 			<% end %>
         </div>
 
