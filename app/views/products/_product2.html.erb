@@ -1,0 +1,48 @@
+         
+            <% @products.each do |product| %>
+ 
+ <div class="col-12 col-md-5 col-lg-4 d-flex flex-column">
+
+            <!-- Card -->
+          
+			<% if product.discount.present? %>
+
+	       
+          
+
+
+	            <div class="card mb-7 text-white" style="min-height: 400px">
+
+		              <!-- Background -->
+		              <div class="card-bg">
+		              	
+
+		                <div class="card-bg-img bg-cover" ><%= image_tag "https://top10tphcm.com/wp-content/uploads/2018/12/top-10-shop-b%C3%A1n-qu%E1%BA%A7n-%C3%A1o-n%E1%BB%AF-%C4%91%E1%BA%B9p-uy-t%C3%ADn-t%E1%BA%A1i-hu%E1%BA%BF-elly.png"  %></div>
+		                
+		              </div>
+
+	              <!-- Body -->
+	             	<div class="card-body my-auto text-right">
+
+		                <!-- Heading -->
+		            
+		                <div class="mb-0" class="badge badge-primary badge-pill card-badge text-uppercase">Sale <%= product.discount %>% </div>
+
+		                <!-- Link -->
+		                <h4 class="btn btn-link container text-right " ><%= link_to "Shop now" , product_path(product.id) %>
+		                 
+		                </h4>
+
+	             	</div>
+	             </div>
+	            <div>
+	           	<span><%= product.name %></span><br>
+	             <span class="font-size-lg font-weight-bold text-gray-350 text-decoration-line-through">Price: <%=  product.price %> VND</span>
+	             <span class="font-size-lg"> Price: <%=  product.discount_price %> VND</span>
+	            
+	             </div>
+
+
+             <%end%>
+   </div>
+            <%end%>

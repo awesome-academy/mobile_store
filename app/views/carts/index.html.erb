@@ -23,12 +23,14 @@
 			    <% @sum = 0%>
 			    <% @count = 0%>
 				<% @order_details.each do |order_detail|  %>
+
 					<% @product = Product.find(order_detail.first.to_i)%>
 					<% quantity = order_detail.last %>
-					<% unit_price = @product.price*quantity %>
+		
+					<% unit_price = @product.discount_price*quantity %>
 
 		          <!-- List group -->
-
+			      
 			      
 			            <li class="list-group-item"  id="product-<%= @product.id %>">
 			              <div class="row align-items-center">
@@ -67,7 +69,7 @@
 			              </div>
 			            </li>
 			   			<% @sum += unit_price %>       
-			       
+			       		
 		     	<% end %>
 		     </ul> 
 			    <div id = "sum-ajax" , align="center"> <span> Tong tien:<%= @sum %> VND </span></div>

@@ -198,7 +198,7 @@ figure {
  margin:0 0 1rem
 }
 img {
- vertical-align:middle;
+ 
  border-style:none
 }
 svg {
@@ -450,8 +450,9 @@ mark {
  padding:.25rem;
  background-color:#fff;
  border:1px solid #bababa;
- max-width:100%;
- height:auto
+ max-width:80%;
+ height:auto;
+ margin-left: 50px;
 }
 .figure {
  display:inline-block
@@ -7219,7 +7220,8 @@ button.bg-dark:hover {
 }
 .pt-12,
 .py-12 {
- padding-top:6rem!important
+ padding-top:6rem!important;
+ margin-left:130px;
 }
 .pr-12,
 .px-12 {
@@ -15441,4 +15443,15 @@ a.text-body{
 
 .card-body.px-0{
   margin-left: 10px;
+
 }
+.image-best{
+width: 300px;
+height: 300px;
+
+}
+.image-take{
+  margin-left: 5px;
+
+}
+
