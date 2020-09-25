@@ -1468,7 +1468,8 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home", root_path %></li>
-            <li id = "cart_ajax"><%= link_to "cart", carts_path  %></li>
+            <li id = "cart_ajax"><%= link_to "cart", carts_path %></li>
+            <li><%= link_to "All products", products_path %></li>
             <% if logged_in? %>
               <li><%= link_to "Account", user_path(session[:user_id]) %></li>
               <%if current_user.admin? %>

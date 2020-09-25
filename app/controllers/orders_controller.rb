@@ -5,8 +5,14 @@ class OrdersController < ApplicationController
 		@order = Order.new
 	end
 
+	def show
+		@order = Order.find(params[:id])
+		@feed_2_items = @order.feed_2.paginate(page: params[:page])
+	end
+
 	def create
-	 	@order = Order.new(order_params)	
+		pr = order_params.merge(order_status: order_params[:order_status].to_i)
+	 	@order = Order.new(pr)	
 	 	if @order.save! 	
 			session[:cart].each do |order_detail|
 				@order_detail = @order.order_details.new(
@@ -38,6 +44,7 @@ class OrdersController < ApplicationController
 			end
 		end
 	end
+
 
 	def show
 		@order_details = @order.order_details.paginate(page: params[:page])

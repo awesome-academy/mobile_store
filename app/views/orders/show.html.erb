@@ -3,6 +3,7 @@
 		<strong class="mx-auto">Don hàng của bạn </strong>
     </div>
     <%= render 'shared/feed_2' %>   
+
 	<div class = "sum">Tổng tiền: <%= @order.total_price %>VND</div>
 	<div class = "sum">Trạng thái đơn hàng: <%= @order.order_status %></div>
 	<%= form_for @order, url: order_path(@order.id), method: :put do |f| %>
