@@ -6,6 +6,7 @@ class Admin::ProductsController < ApplicationController
  	end 
 
  	def create	
+ 	
  		pr = product_params.merge(classify: product_params[:classify].to_i)
  		@product = Product.new(pr)
  		@product.image.attach(params[:product][:image])
@@ -24,6 +25,46 @@ class Admin::ProductsController < ApplicationController
 		end
  	end
 
+ 	def show
+ 		@product = Product.find_by id: params[:id]
+ 	end
+
+ 	def index
+		if params[:type] == "women"
+			@products = Product.women.paginate(page: params[:page])
+	    elsif params[:type] == "men"
+	    	@products = Product.men.paginate(page: params[:page])
+	    elsif params[:type] == "kid"
+	    	@products = Product.kid.paginate(page: params[:page])
+	 	elsif params[:type] == "sale_off"
+	    	@products = Product.where.not(discount: nil).paginate(page: params[:page])
+	    else
+	    	@products = Product.all.paginate(page: params[:page])
+	    end
+	end
+	    
+
+
+	def edit
+		@product = Product.find_by(id: params[:id])
+	end
+	def update
+		@product = Product.find_by(id: params[:id])
+		pr = product_params.merge(classify: product_params[:classify].to_i)
+		if @product.update(pr)
+			flash[:success] = "Profile updated"
+			redirect_to admin_products_path
+		end
+	end
+
+	def destroy
+
+		Product.find_by(id: params[:id]).destroy
+		flash[:success] = "Product deleted"
+		redirect_to admin_products_path
+	end
+
+
 
 	private
 
@@ -34,7 +75,7 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def product_params
-		params.require(:product).permit(:name, :price, :classify, :image)
+		params.require(:product).permit(:name, :price, :classify, :image, :discount)
 	end
 
 end

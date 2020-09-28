@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_020336) do
+ActiveRecord::Schema.define(version: 2020_09_23_070801) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -41,6 +41,16 @@ ActiveRecord::Schema.define(version: 2020_09_22_020336) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "notifies", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "comment_id"
+    t.integer "sub_comment_id"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_notifies_on_user_id"
+  end
+
   create_table "order_details", force: :cascade do |t|
     t.integer "order_id"
     t.integer "product_id"
@@ -60,6 +70,14 @@ ActiveRecord::Schema.define(version: 2020_09_22_020336) do
     t.string "phone"
   end
 
+  create_table "product_details", force: :cascade do |t|
+    t.integer "size"
+    t.integer "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_product_details_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.integer "price"
@@ -67,6 +85,7 @@ ActiveRecord::Schema.define(version: 2020_09_22_020336) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "discount"
+    t.integer "classify"
   end
 
   create_table "sub_comments", force: :cascade do |t|
@@ -85,10 +104,12 @@ ActiveRecord::Schema.define(version: 2020_09_22_020336) do
     t.string "password_digest"
     t.string "remember_digest"
     t.boolean "admin", default: false
-
     t.integer "classify"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "notifies", "users"
+  add_foreign_key "product_details", "products"
+
 end

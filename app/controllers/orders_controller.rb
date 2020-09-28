@@ -1,16 +1,13 @@
 class OrdersController < ApplicationController
 	before_action :find_order, only: [:edit, :update, :show]
+	before_action :logged_in_user
 
 	def new
 		@order = Order.new
 	end
 
-	def show
-		@order = Order.find(params[:id])
-		@feed_2_items = @order.feed_2.paginate(page: params[:page])
-	end
-
 	def create
+		
 		pr = order_params.merge(order_status: order_params[:order_status].to_i)
 	 	@order = Order.new(pr)	
 	 	if @order.save! 	
@@ -45,8 +42,8 @@ class OrdersController < ApplicationController
 		end
 	end
 
-
 	def show
+		
 		@order_details = @order.order_details.paginate(page: params[:page])
   		@feed_2_items = @order.feed_2.paginate(page: params[:page])
 	end

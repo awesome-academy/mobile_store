@@ -17,10 +17,11 @@
 				<% unit_price = product.discount_price*quantity %>				
             	<% @sum += unit_price %>
 			<% end %>
+			<% @total_sum = @sum + 30000 %>
 		<div class = "infor">
 			Tạm tính: <%= @sum%> VND</br>
-			Phí vận chuyển: 30 VND</br>
-			Tổng công: <%= @sum + 30%> VND</br>
+			Phí vận chuyển: 30000 VND</br>
+			Tổng công:  <%= @total_sum %> VND</br>
 			Hình thức thanh toán: Thanh toán khi nhận hàng
 		</div>
 
@@ -30,7 +31,7 @@
         	<%= form_for @order do |f| %>
 				<%= f.hidden_field :user_id, value: session[:user_id] %>
 
-				<%= f.hidden_field :total_price, value: @sum +30%>
+				<%= f.hidden_field :total_price, value: @total_sum %>
 
 				<%= f.hidden_field :order_status, value: 0 %>
 
